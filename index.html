@@ -1,499 +1,541 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pilates na Parede - Emagreça em 21 Dias</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-        .hero {
-            background: linear-gradient(135deg, #ff6b9d, #c44569);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
+      .hero {
+        background: linear-gradient(135deg, #ff6b9d, #c44569);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+      }
 
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero .subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        opacity: 0.95;
+      }
+
+      .hero .weight-goal {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+        margin: 30px auto;
+        max-width: 400px;
+        backdrop-filter: blur(10px);
+      }
+
+      .weight-goal .number {
+        font-size: 4rem;
+        font-weight: 800;
+        color: #4ade80;
+        display: block;
+      }
+
+      .weight-goal .days {
+        font-size: 1.2rem;
+        margin-top: 10px;
+      }
+
+      .cta-button {
+        background: #4ade80;
+        color: white;
+        padding: 20px 40px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 30px;
+        box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(74, 222, 128, 0.4);
+      }
+
+      .social-proof {
+        background: #f8fafc;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .testimonial {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 600px;
+      }
+
+      .testimonial .stars {
+        color: #fbbf24;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .testimonial .name {
+        font-weight: 600;
+        color: #ff6b9d;
+        margin-top: 15px;
+      }
+
+      .benefits {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .benefits h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: #333;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+      }
+
+      .benefit-card {
+        text-align: center;
+        padding: 30px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      }
+
+      .benefit-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .benefit-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .offer {
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .offer h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+
+      .price-box {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 20px;
+        margin: 30px auto;
+        max-width: 500px;
+        backdrop-filter: blur(10px);
+      }
+
+      .old-price {
+        text-decoration: line-through;
+        font-size: 1.5rem;
+        opacity: 0.7;
+        margin-bottom: 10px;
+      }
+
+      .new-price {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      .price-per-day {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .urgency {
+        background: #dc2626;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-weight: 600;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .guarantee {
+        background: #f8fafc;
+        padding: 60px 0;
+        text-align: center;
+      }
+
+      .guarantee-badge {
+        background: #4ade80;
+        color: white;
+        padding: 20px 30px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .faq {
+        padding: 60px 0;
+        background: white;
+      }
+
+      .faq h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+      }
+
+      .faq-item {
+        background: #f8fafc;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        background: #e2e8f0;
+      }
+
+      .faq-answer {
+        padding: 20px;
+        display: none;
+      }
+
+      .footer {
+        background: #1f2937;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
+          font-size: 2rem;
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .hero .weight-goal {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 30px auto;
-            max-width: 400px;
-            backdrop-filter: blur(10px);
+          font-size: 1.2rem;
         }
 
         .weight-goal .number {
-            font-size: 4rem;
-            font-weight: 800;
-            color: #4ade80;
-            display: block;
-        }
-
-        .weight-goal .days {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        .cta-button {
-            background: #4ade80;
-            color: white;
-            padding: 20px 40px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(74, 222, 128, 0.4);
-        }
-
-        .social-proof {
-            background: #f8fafc;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 600px;
-        }
-
-        .testimonial .stars {
-            color: #fbbf24;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .testimonial .name {
-            font-weight: 600;
-            color: #ff6b9d;
-            margin-top: 15px;
-        }
-
-        .benefits {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .benefits h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #333;
+          font-size: 3rem;
         }
 
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+          grid-template-columns: 1fr;
         }
-
-        .benefit-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .offer {
-            background: linear-gradient(135deg, #4ade80, #22c55e);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .offer h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .price-box {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 30px auto;
-            max-width: 500px;
-            backdrop-filter: blur(10px);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            font-size: 1.5rem;
-            opacity: 0.7;
-            margin-bottom: 10px;
-        }
-
-        .new-price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .price-per-day {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .urgency {
-            background: #dc2626;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            font-weight: 600;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .guarantee {
-            background: #f8fafc;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .guarantee-badge {
-            background: #4ade80;
-            color: white;
-            padding: 20px 30px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .faq {
-            padding: 60px 0;
-            background: white;
-        }
-
-        .faq h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .faq-item {
-            background: #f8fafc;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            background: #e2e8f0;
-        }
-
-        .faq-answer {
-            padding: 20px;
-            display: none;
-        }
-
-        .footer {
-            background: #1f2937;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .weight-goal .number {
-                font-size: 3rem;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Seção Hero -->
     <section class="hero">
-        <div class="container">
-            <h1>Transforme Seu Corpo com<br>Pilates na Parede</h1>
-            <p class="subtitle">O método que já transformou mais de 8 milhões de pessoas</p>
-            
-            <div class="weight-goal">
-                <span class="number">70kg</span>
-                <p class="days">em até 21 dias</p>
-                <small>*Baseado nas respostas do nosso método exclusivo</small>
-            </div>
-            
-            <a href="#oferta" class="cta-button">QUERO MINHA TRANSFORMAÇÃO AGORA</a>
-            
-            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
-                ✅ Método 100% Natural<br>
-                ✅ Sem Dietas Restritivas<br>
-                ✅ Exercícios que Fortalecem e Emagrecem
-            </p>
+      <div class="container">
+        <h1>Transforme Seu Corpo com<br />Pilates na Parede</h1>
+        <p class="subtitle">
+          O método que já transformou mais de 8 milhões de pessoas
+        </p>
+
+        <div class="weight-goal">
+          <span class="number">70kg</span>
+          <p class="days">em até 21 dias</p>
+          <small>*Baseado nas respostas do nosso método exclusivo</small>
         </div>
+
+        <a href="https://pay.cakto.com.br/oy6vqhj_633375" class="cta-button">QUERO MINHA TRANSFORMAÇÃO AGORA</a>
+
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8">
+          ✅ Método 100% Natural<br />
+          ✅ Sem Dietas Restritivas<br />
+          ✅ Exercícios que Fortalecem e Emagrecem
+        </p>
+      </div>
     </section>
 
     <!-- Prova Social -->
     <section class="social-proof">
-        <div class="container">
-            <h2 style="margin-bottom: 40px; color: #333;">Mais de 8 milhões escolheram o Pilates na Parede</h2>
-            
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p><strong>Vanessa</strong> - 13/01/2025</p>
-                <p>"Perdi 6kg em duas semanas, estou muuuito feliz! ❤️"</p>
-            </div>
+      <div class="container">
+        <h2 style="margin-bottom: 40px; color: #333">
+          Mais de 8 milhões escolheram o Pilates na Parede
+        </h2>
+
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p><strong>Vanessa</strong> - 13/01/2025</p>
+          <p>"Perdi 6kg em duas semanas, estou muuuito feliz! ❤️"</p>
         </div>
+      </div>
     </section>
 
     <!-- Benefícios -->
     <section class="benefits">
-        <div class="container">
-            <h2>Por que o Pilates na Parede Funciona?</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 40px;">
-                Esses exercícios <strong>fortalecem seus músculos, núcleo e aumentam a consciência corporal</strong>
+      <div class="container">
+        <h2>Por que o Pilates na Parede Funciona?</h2>
+        <p
+          style="
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+          "
+        >
+          Esses exercícios
+          <strong
+            >fortalecem seus músculos, núcleo e aumentam a consciência
+            corporal</strong
+          >
+        </p>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <span class="benefit-icon">🔥</span>
+            <h3>Queima Gordura Localizada</h3>
+            <p>Exercícios específicos para barriga, glúteos, pernas e peito</p>
+          </div>
+
+          <div class="benefit-card">
+            <span class="benefit-icon">💪</span>
+            <h3>Fortalece o Core</h3>
+            <p>Desenvolve força do núcleo sem impacto nas articulações</p>
+          </div>
+
+          <div class="benefit-card">
+            <span class="benefit-icon">⚡</span>
+            <h3>Energia Estável</h3>
+            <p>Melhora seus níveis de energia durante todo o dia</p>
+          </div>
+
+          <div class="benefit-card">
+            <span class="benefit-icon">🏠</span>
+            <h3>Treino em Casa</h3>
+            <p>Apenas 5-30 minutos por dia, no conforto da sua casa</p>
+          </div>
+
+          <div class="benefit-card">
+            <span class="benefit-icon">📅</span>
+            <h3>Flexibilidade Total</h3>
+            <p>Adapte aos seus horários e rotina de trabalho</p>
+          </div>
+
+          <div class="benefit-card">
+            <span class="benefit-icon">😴</span>
+            <h3>Melhora o Sono</h3>
+            <p>
+              Exercícios que relaxam e proporcionam melhor qualidade do sono
             </p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <span class="benefit-icon">🔥</span>
-                    <h3>Queima Gordura Localizada</h3>
-                    <p>Exercícios específicos para barriga, glúteos, pernas e peito</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <span class="benefit-icon">💪</span>
-                    <h3>Fortalece o Core</h3>
-                    <p>Desenvolve força do núcleo sem impacto nas articulações</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <span class="benefit-icon">⚡</span>
-                    <h3>Energia Estável</h3>
-                    <p>Melhora seus níveis de energia durante todo o dia</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <span class="benefit-icon">🏠</span>
-                    <h3>Treino em Casa</h3>
-                    <p>Apenas 5-30 minutos por dia, no conforto da sua casa</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <span class="benefit-icon">📅</span>
-                    <h3>Flexibilidade Total</h3>
-                    <p>Adapte aos seus horários e rotina de trabalho</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <span class="benefit-icon">😴</span>
-                    <h3>Melhora o Sono</h3>
-                    <p>Exercícios que relaxam e proporcionam melhor qualidade do sono</p>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Oferta -->
     <section class="offer" id="oferta">
-        <div class="container">
-            <h2>Seu Plano Personalizado de 21 Dias</h2>
-            <p style="font-size: 1.3rem; margin-bottom: 30px;">
-                Protocolo completo para resultados em até 21 dias!
-            </p>
-            
-            <div class="price-box">
-                <div class="old-price">De R$ 47,00</div>
-                <div class="new-price">R$ 17,00</div>
-                <div class="price-per-day">R$ 0,56 por dia</div>
-                <p style="margin-top: 20px; font-size: 1.1rem;">
-                    <strong>Pilates em Casa</strong><br>
-                    Acesso vitalício • Suporte especializado
-                </p>
-            </div>
-            
-            <a href="#" class="cta-button" style="background: white; color: #22c55e; font-size: 1.4rem;">
-                OBTER MEU PLANO PERSONALIZADO AGORA!
-            </a>
-            
-            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">
-                ⏰ Oferta por tempo limitado<br>
-                🔒 Compra 100% segura<br>
-                📱 Acesso imediato via celular
-            </p>
+      <div class="container">
+        <h2>Seu Plano Personalizado de 21 Dias</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 30px">
+          Protocolo completo para resultados em até 21 dias!
+        </p>
+
+        <div class="price-box">
+          <div class="old-price">De R$ 47,00</div>
+          <div class="new-price">R$ 17,00</div>
+          <div class="price-per-day">R$ 0,56 por dia</div>
+          <p style="margin-top: 20px; font-size: 1.1rem">
+            <strong>Pilates em Casa</strong><br />
+            Acesso vitalício • Suporte especializado
+          </p>
         </div>
+
+        <a
+          href="https://pay.cakto.com.br/oy6vqhj_633375"
+          class="cta-button"
+          style="background: white; color: #22c55e; font-size: 1.4rem"
+        >
+          OBTER MEU PLANO PERSONALIZADO AGORA!
+        </a>
+
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9">
+          ⏰ Oferta por tempo limitado<br />
+          🔒 Compra 100% segura<br />
+          📱 Acesso imediato via celular
+        </p>
+      </div>
     </section>
 
     <!-- Urgência -->
     <section class="urgency">
-        <div class="container">
-            <p>⚠️ ESSE DESCONTO ACABARÁ HOJE! ⚠️</p>
-        </div>
+      <div class="container">
+        <p>⚠️ ESSE DESCONTO ACABARÁ HOJE! ⚠️</p>
+      </div>
     </section>
 
     <!-- Garantia -->
     <section class="guarantee">
-        <div class="container">
-            <div class="guarantee-badge">GARANTIA DE 30 DIAS</div>
-            <h3 style="margin-bottom: 20px; color: #333;">100% Satisfação Garantida</h3>
-            <p style="color: #666; max-width: 600px; margin: 0 auto;">
-                Se você não ficar completamente satisfeita com os resultados em 30 dias, 
-                devolvemos 100% do seu investimento. Sem perguntas, sem complicações.
-            </p>
-        </div>
+      <div class="container">
+        <div class="guarantee-badge">GARANTIA DE 30 DIAS</div>
+        <h3 style="margin-bottom: 20px; color: #333">
+          100% Satisfação Garantida
+        </h3>
+        <p style="color: #666; max-width: 600px; margin: 0 auto">
+          Se você não ficar completamente satisfeita com os resultados em 30
+          dias, devolvemos 100% do seu investimento. Sem perguntas, sem
+          complicações.
+        </p>
+      </div>
     </section>
 
     <!-- FAQ -->
     <section class="faq">
-        <div class="container">
-            <h2>Perguntas Frequentes</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">Quanto tempo preciso treinar por dia?</div>
-                <div class="faq-answer">
-                    <p>Entre 5 a 30 minutos por dia. Você escolhe de acordo com sua disponibilidade e objetivos.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Funciona para iniciantes?</div>
-                <div class="faq-answer">
-                    <p>Sim! O método é adaptado para todos os níveis, desde iniciantes até avançados.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Preciso de equipamentos?</div>
-                <div class="faq-answer">
-                    <p>Não! Você só precisa de uma parede. Todos os exercícios usam o peso do próprio corpo.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Quando vou ver resultados?</div>
-                <div class="faq-answer">
-                    <p>Muitas pessoas relatam mudanças já nas primeiras semanas, com resultados mais visíveis em 21 dias.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Perguntas Frequentes</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">Quanto tempo preciso treinar por dia?</div>
+          <div class="faq-answer">
+            <p>
+              Entre 5 a 30 minutos por dia. Você escolhe de acordo com sua
+              disponibilidade e objetivos.
+            </p>
+          </div>
         </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Funciona para iniciantes?</div>
+          <div class="faq-answer">
+            <p>
+              Sim! O método é adaptado para todos os níveis, desde iniciantes
+              até avançados.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Preciso de equipamentos?</div>
+          <div class="faq-answer">
+            <p>
+              Não! Você só precisa de uma parede. Todos os exercícios usam o
+              peso do próprio corpo.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Quando vou ver resultados?</div>
+          <div class="faq-answer">
+            <p>
+              Muitas pessoas relatam mudanças já nas primeiras semanas, com
+              resultados mais visíveis em 21 dias.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Pilates na Parede. Todos os direitos reservados.</p>
-            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
-                Este produto não substitui acompanhamento médico ou nutricional.
-            </p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 Pilates na Parede. Todos os direitos reservados.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8">
+          Este produto não substitui acompanhamento médico ou nutricional.
+        </p>
+      </div>
     </footer>
 
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isOpen = answer.style.display === 'block';
-                
-                // Fechar todas as respostas
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.style.display = 'none';
-                });
-                
-                // Abrir/fechar a resposta clicada
-                if (!isOpen) {
-                    answer.style.display = 'block';
-                }
-            });
-        });
+      // FAQ Accordion
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const answer = question.nextElementSibling;
+          const isOpen = answer.style.display === "block";
 
-        // Smooth scroll para âncoras
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+          // Fechar todas as respostas
+          document.querySelectorAll(".faq-answer").forEach((ans) => {
+            ans.style.display = "none";
+          });
 
-        // Tracking de cliques nos CTAs
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', () => {
-                // Aqui você pode adicionar código para tracking/analytics
-                console.log('CTA clicked');
-            });
+          // Abrir/fechar a resposta clicada
+          if (!isOpen) {
+            answer.style.display = "block";
+          }
         });
+      });
+
+      // Smooth scroll para âncoras
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Tracking de cliques nos CTAs
+      document.querySelectorAll(".cta-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Aqui você pode adicionar código para tracking/analytics
+          console.log("CTA clicked");
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
